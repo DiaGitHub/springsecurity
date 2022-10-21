@@ -1,0 +1,42 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.4'
+	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+	id 'java'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.flywaydb:flyway-core'
+//	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.7.4'
+	implementation                group: 'org.mapstruct',                name: 'mapstruct',                                     version: property('mapstruct.version')
+	implementation                group: 'org.springframework.ws',       name: 'spring-ws-support'
+	implementation                'org.springframework.boot:spring-boot-starter-web'
+	runtimeOnly 'org.postgresql:postgresql'
+
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	annotationProcessor                     group: 'org.projectlombok',             name: 'lombok'
+	annotationProcessor           group: 'org.projectlombok',            name: 'lombok-mapstruct-binding',                      version: property('lombok-mapstruct-binding.version')
+	annotationProcessor           group: 'org.mapstruct',                name: 'mapstruct-processor',                           version: property('mapstruct.version')
+
+	compileOnly                             group: 'org.projectlombok',             name: 'lombok'
+
+	testCompileOnly                         group: 'org.projectlombok',             name: 'lombok'
+
+	testAnnotationProcessor                 group: 'org.projectlombok',             name: 'lombok'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

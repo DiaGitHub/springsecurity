@@ -1,0 +1,7 @@
+info:
+  app:
+    name: lyd-service-couscous
+
+spring:
+  application:
+    name: couscous
