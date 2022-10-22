@@ -17,7 +17,10 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.flywaydb:flyway-core'
-//	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.7.4'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.7.4'
+	implementation group: 'org.springframework.ldap',  name :'spring-ldap-core'
+	implementation group: 'org.springframework.security',   name:'spring-security-ldap'
+	implementation group: 'com.unboundid',   name:'unboundid-ldapsdk'
 	implementation                group: 'org.mapstruct',                name: 'mapstruct',                                     version: property('mapstruct.version')
 	implementation                group: 'org.springframework.ws',       name: 'spring-ws-support'
 	implementation                'org.springframework.boot:spring-boot-starter-web'
