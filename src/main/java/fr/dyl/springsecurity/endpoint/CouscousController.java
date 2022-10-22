@@ -21,12 +21,6 @@ public class CouscousController {
     static final String PATH = "/api/v1/couscouses";
 
     private final CouscousService couscousService;
-
-    @GetMapping("/{couscousId}")
-    public CouscousDto getCouscous(@PathVariable("couscousId") UUID couscousId) {
-        return couscousService.getCouscous(couscousId);
-    }
-
     @PostMapping
     public ResponseEntity<CouscousResponseDto> addCouscous(@Validated @RequestBody CouscousDto couscousDto) {
         var couscousId = couscousService.addCouscous(couscousDto);
@@ -38,5 +32,10 @@ public class CouscousController {
 
         return ResponseEntity.created(createdUri)
                              .body(new CouscousResponseDto(couscousId));
+    }
+
+    @GetMapping("/{couscousId}")
+    public CouscousDto getCouscous(@PathVariable("couscousId") UUID couscousId) {
+        return couscousService.getCouscous(couscousId);
     }
 }
