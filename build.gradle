@@ -17,12 +17,11 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.flywaydb:flyway-core'
-//	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.7.4'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.7.4'
 	implementation                group: 'org.mapstruct',                name: 'mapstruct',                                     version: property('mapstruct.version')
 	implementation                group: 'org.springframework.ws',       name: 'spring-ws-support'
 	implementation                'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'org.postgresql:postgresql'
-
+	runtimeOnly                   'org.postgresql:postgresql'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor                     group: 'org.projectlombok',             name: 'lombok'
 	annotationProcessor           group: 'org.projectlombok',            name: 'lombok-mapstruct-binding',                      version: property('lombok-mapstruct-binding.version')
